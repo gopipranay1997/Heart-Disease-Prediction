@@ -1,3 +1,7 @@
+import pandas as pd
+import numpy as np
+
+
 df4 = pd.read_csv("leukemia_big.csv")
 df4_1 = (df4.T).reset_index()
 df4_1.index = df4_1.index.astype(str)

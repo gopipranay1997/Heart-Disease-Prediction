@@ -1,4 +1,4 @@
-name: model-wine-quality
+name: model-breast-cancer
 on: [push]
 jobs:
   run:

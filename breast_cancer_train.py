@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score
 
-df = pd.read_csv("/home/k8user/Pictures/vae-dr/archive (1)/data.csv")
+df = pd.read_csv("data.csv")
 df1 = df.drop(['Unnamed: 32', 'id', 'diagnosis'], axis=1)
 X_t = df1
 y_t = df['diagnosis']

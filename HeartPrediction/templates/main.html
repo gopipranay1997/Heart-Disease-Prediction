@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Default Payments of Credit Card Clients Predictions</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Website Title -->
+
+  <div class="container">
+    <h2 class='container-heading'><span class="heading_font">Default Payments of Credit Card Clients Predictions</span></h2>
+
+    <div class='description'>
+      <p>A Machine Learning Web Application that predicits Default or Not Default for Credit Card Loans, Built with Flask and Deployed in localhost.</p><br>
+        <p>(Note:This model is 85% accurate)</p>
+    </div>
+  </div>
+
+  <!-- Text Area -->
+  <div class="ml-container">
+    <form action="{{ url_for('predict')}}" method="POST"> 
+
+      
+        <label for="LIMIT_BAL">LIMIT_BAL</label>
+        <input type="text" id="LIMIT_BAL" name="LIMIT_BAL" placeholder="Amount of given credit in NT dollars (includes individual and family/supplementary credit)"><br>
+
+        <label for="BILL_AMT1">BILL_AMT1</label>
+        <input type="text" id="BILL_AMT1" name="BILL_AMT1" placeholder="Amount of bill statement in last month"><br>
+
+        <label for="BILL_AMT2">BILL_AMT2</label>
+        <input type="text" id="BILL_AMT2" name="BILL_AMT2" placeholder="Amount of bill statement in last 2nd month"><br>
+
+        <label for="BILL_AMT3">BILL_AMT3 </label>
+        <input type="text" id="BILL_AMT3" name="BILL_AMT3" placeholder="Amount of bill statement in last 3rd month"><br>
+
+        <label for="BILL_AMT4">BILL_AMT4 </label>
+        <input type="text" id="BILL_AMT4" name="BILL_AMT4" placeholder="Amount of bill statement in last 4th month"><br>
+
+        <label for="BILL_AMT5">BILL_AMT5</label>
+        <input type="text" id="BILL_AMT5" name="BILL_AMT5" placeholder="Amount of bill statement in last 5th month"><br>
+
+        <label for="BILL_AMT6">BILL_AMT6</label>
+        <input type="text" id="BILL_AMT6" name="BILL_AMT6" placeholder="Amount of bill statement in last 6th month"><br>
+
+        <label for="PAY_AMT1">PAY_AMT1</label>
+        <input type="text" id="PAY_AMT1" name="PAY_AMT1" placeholder="Amount of previous payment in last month"><br>
+
+        <label for="PAY_AMT2">PAY_AMT2</label>
+        <input type="text" id="PAY_AMT2" name="PAY_AMT2" placeholder="Amount of previous payment in last 2nd month"><br>
+
+        <label for="PAY_AMT3">PAY_AMT3</label>
+        <input type="text" id="PAY_AMT3" name="PAY_AMT3" placeholder="Amount of previous payment in last 3rd month"><br>
+
+        <label for="PAY_AMT4">PAY_AMT4</label>
+        <input type="text" id="PAY_AMT4" name="PAY_AMT4" placeholder="Amount of previous payment in last 4th month"><br>
+
+        <label for="PAY_AMT5">PAY_AMT5</label>
+        <input type="text" id="PAY_AMT5" name="PAY_AMT5" placeholder="Amount of previous payment in last 5th month"><br>
+
+        <label for="PAY_AMT6">PAY_AMT6</label>
+        <input type="text" id="PAY_AMT6" name="PAY_AMT6" placeholder="Amount of previous payment in last 6th month"><br>
+
+        <label for="SEX">SEX</label>
+        <select id="SEX" name="SEX" placeholder="Gender">
+          <option selected>----select option----</option>
+          <option value="1">Male</option>
+          <option value="2">Female</option>
+        </select><br>
+        
+
+        <label for="EDUCATION">EDUCATION</label>
+        <select id="EDUCATION" name="EDUCATION">
+          <option selected>----select option----</option>
+          <option value="1">graduate school</option>
+          <option value="2">university</option>
+          <option value="3">high school</option>
+          <option value="4">others</option>
+          <option value="5">unknown</option>
+        </select><br>
+
+
+        <label for="MARRIAGE">MARRIAGE</label>
+        <select id="MARRIAGE" name="MARRIAGE" placeholder="Marital status">
+          <option selected>----select option----</option>
+          <option value="1">married</option>
+          <option value="2">single</option>
+          <option value="3">others</option>
+        </select><br>
+
+       <label for="AGE">AGE</label>
+        <input type="text" id="AGE" name="AGE" placeholder="Age in years"><br>
+
+        <label for="PAY_0">PAY_0</label>
+        <select id="PAY_0" name="PAY_0" placeholder="Repayment status of last month"> 
+          <option selected>----select option----</option>
+          <option value="-1">pay duly</option>
+          <option value="0">payment delay for one month</option>
+          <option value="1">payment delay for two months</option>
+          <option value="2">payment delay for three months</option>
+          <option value="3">payment delay for four months</option>
+          <option value="4">payment delay for five months</option>
+          <option value="5">payment delay for six months</option>
+          <option value="6">payment delay for seven months</option>
+          <option value="7">payment delay for eight months</option>
+          <option value="8">payment delay for nine months and above</option>
+        </select><br>
+        
+        <label for="PAY_2">PAY_2</label>
+        <select id="PAY_2" name="PAY_2" placeholder="Repayment status of last 2nd month">
+          <option selected>----select option----</option>
+          <option value="-1">pay duly</option>
+          <option value="0">payment delay for one month</option>
+          <option value="1">payment delay for two months</option>
+          <option value="2">payment delay for three months</option>
+          <option value="3">payment delay for four months</option>
+          <option value="4">payment delay for five months</option>
+          <option value="5">payment delay for six months</option>
+          <option value="6">payment delay for seven months</option>
+          <option value="7">payment delay for eight months</option>
+          <option value="8">payment delay for nine months and above</option>
+        </select><br>
+
+
+        <label for="PAY_3">PAY_3</label> 
+        <select id="PAY_3" name="PAY_3" placeholder="Repayment status of last 3rd month">
+          <option selected>----select option----</option>
+          <option value="-1">pay duly</option>
+          <option value="0">payment delay for one month</option>
+          <option value="1">payment delay for two months</option>
+          <option value="2">payment delay for three months</option>
+          <option value="3">payment delay for four months</option>
+          <option value="4">payment delay for five months</option>
+          <option value="5">payment delay for six months</option>
+          <option value="6">payment delay for seven months</option>
+          <option value="7">payment delay for eight months</option>
+          <option value="8">payment delay for nine months and above</option>
+        </select><br>
+
+        <label for="PAY_4">PAY_4</label> 
+        <select id="PAY_4" name="PAY_4" placeholder="Repayment status of last 4th month">
+          <option selected>----select option----</option>
+          <option value="-1">pay duly</option>
+          <option value="0">payment delay for one month</option>
+          <option value="1">payment delay for two months</option>
+          <option value="2">payment delay for three months</option>
+          <option value="3">payment delay for four months</option>
+          <option value="4">payment delay for five months</option>
+          <option value="5">payment delay for six months</option>
+          <option value="6">payment delay for seven months</option>
+          <option value="7">payment delay for eight months</option>
+          <option value="8">payment delay for nine months and above</option>
+        </select><br>
+ 
+        <label for="PAY_5">PAY_5</label> 
+        <select id="PAY_5" name="PAY_5" placeholder="Repayment status of last 5th month">
+          <option selected>----select option----</option>
+          <option value="-1">pay duly</option>
+          <option value="0">payment delay for one month</option>
+          <option value="1">payment delay for two months</option>
+          <option value="2">payment delay for three months</option>
+          <option value="3">payment delay for four months</option>
+          <option value="4">payment delay for five months</option>
+          <option value="5">payment delay for six months</option>
+          <option value="6">payment delay for seven months</option>
+          <option value="7">payment delay for eight months</option>
+          <option value="8">payment delay for nine months and above</option>
+        </select><br> 
+
+        <label for="PAY_6">PAY_6</label> 
+        <select id="PAY_6" name="PAY_6" placeholder="Repayment status of last 6th month">
+          <option selected>----select option----</option>
+          <option value="-1">pay duly</option>
+          <option value="0">payment delay for one month</option>
+          <option value="1">payment delay for two months</option>
+          <option value="2">payment delay for three months</option>
+          <option value="3">payment delay for four months</option>
+          <option value="4">payment delay for five months</option>
+          <option value="5">payment delay for six months</option>
+          <option value="6">payment delay for seven months</option>
+          <option value="7">payment delay for eight months</option>
+          <option value="8">payment delay for nine months and above</option>
+        </select><br> 
+
+      <input type="submit" class="my-cta-button" value="Predict">
+    </form>
+  </div>
+
+</body>
+
+</html>
